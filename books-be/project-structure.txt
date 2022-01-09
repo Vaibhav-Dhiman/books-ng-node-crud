@@ -1,0 +1,3 @@
+https://github.com/MoathShraim/Nodejs-rest-api-project-structure-Express
+
+https://medium.com/swlh/how-to-create-a-simple-restful-api-in-node-js-ae4bfddea158
