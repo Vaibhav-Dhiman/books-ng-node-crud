@@ -20,6 +20,17 @@ export default {
       return null;
     }
   },
+
+  async updateBook(id, body) {
+    let value = body;
+    delete value._id;
+    console.log(value);
+    const data = await book.findOneAndUpdate({ _id: id }, value, {
+      new: true,
+    });
+    return data;
+  },
+
   async deleteBook(id) {
     let value = { isDelete: true };
     await book.findOneAndUpdate({ _id: id, isDelete: false }, value, {

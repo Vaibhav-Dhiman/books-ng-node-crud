@@ -33,6 +33,12 @@ export default {
     }
   },
 
+  async updateBook(req, res) {
+    const { id } = req.params;
+    const resp = await bookService.updateBook(id, req.body);
+    return res.json(resp);
+  },
+
   async deleteBook(req, res) {
     const resp = await bookService.deleteBook(req.params.id);
     return res.json("Book Deleted");
