@@ -1,19 +1,19 @@
-import book from "../models/book.js";
+import Book from "../models/book.js";
 
 export default {
-  getBooks() {
-    let books = book.find({ isDelete: false });
+  async getBooks() {
+    let books = await Book.find({ isDelete: false });
     return books;
   },
 
   async getBook(id) {
-    let data = await book.findOne({ _id: id, isDelete: false });
+    let data = await Book.findOne({ _id: id, isDelete: false });
     return data;
   },
 
-  createBook(newBook) {
+  async createBook(newBook) {
     try {
-      let newBoo = new book(newBook);
+      let newBoo = await new Book(newBook);
       newBoo.save();
       return newBook;
     } catch {
@@ -24,8 +24,7 @@ export default {
   async updateBook(id, body) {
     let value = body;
     delete value._id;
-    console.log(value);
-    const data = await book.findOneAndUpdate({ _id: id }, value, {
+    const data = await Book.findOneAndUpdate({ _id: id }, value, {
       new: true,
     });
     return data;
@@ -33,7 +32,7 @@ export default {
 
   async deleteBook(id) {
     let value = { isDelete: true };
-    await book.findOneAndUpdate({ _id: id, isDelete: false }, value, {
+    await Book.findOneAndUpdate({ _id: id, isDelete: false }, value, {
       new: true,
     });
   },
