@@ -12,18 +12,18 @@ import {
   styleUrls: ['./new-book.component.css'],
 })
 export class NewBookComponent implements OnInit {
-  bookForm = {
-    name: new FormControl(''),
-    author: new FormControl(''),
-    isbn: new FormControl(''),
-    price: new FormControl(''),
-  };
+  bookForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    this.bookForm = this.fb.group({
+      name: new FormControl('', Validators.required),
+      author: new FormControl('', Validators.required),
+      isbn: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
+    });
+  }
 
   ngOnInit() {}
 
-  onSubmit(form: FormGroup) {
-    console.log('submit called here', form.value);
-  }
+  onSubmit(form: FormGroup) {}
 }
