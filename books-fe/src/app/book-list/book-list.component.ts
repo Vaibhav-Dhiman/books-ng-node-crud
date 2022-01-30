@@ -7,12 +7,15 @@ import { BookService } from '../book-service.service';
   styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
+  books: any[] = [];
   constructor(private readonly bookService: BookService) {}
 
   ngOnInit(): void {
-    // to do make table header dynamic also
-    let books = this.bookService.getBooks().subscribe((data) => {
-      console.log(data);
+    this.bookService.getBooks().subscribe((data) => {
+      if (data) {
+        this.books = data;
+        //console.log(this.books);
+      }
     });
   }
 }
