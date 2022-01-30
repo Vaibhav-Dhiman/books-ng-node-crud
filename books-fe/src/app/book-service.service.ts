@@ -5,7 +5,7 @@ import { catchError, map, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class BookServiceService {
+export class BookService {
   constructor(private readonly http: HttpClient) {}
 
   getBooks() {

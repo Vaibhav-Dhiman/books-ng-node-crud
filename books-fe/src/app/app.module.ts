@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NewBookComponent } from './new-book/new-book.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 @NgModule({
-  declarations: [AppComponent, NewBookComponent],
+  declarations: [AppComponent, NewBookComponent, BookListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
